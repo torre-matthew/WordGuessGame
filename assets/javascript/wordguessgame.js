@@ -46,23 +46,26 @@ function match () {
 // ==========================================================Calls==================================================================
 
 startGame();
-
+console.log(guesser);
 
 	document.onkeyup = function (event) {
 
 	let userGuess = event.key;
 
-	console.log(guesser);
-
+	
+// If the typed letter exists in the guesser cake array replace the _ in the dashdisplay array with the letter in the appropriate spots.
 		if (guesser.indexOf(userGuess.toUpperCase()) != -1){
+			cakesDashDisplay[guesser.indexOf(userGuess.toUpperCase())] = userGuess.toUpperCase();
 			rightCake.push(userGuess);
-			cakesDashDisplay[guesser.indexOf(userGuess.toUpperCase())] = userGuess;
 			console.log(cakesDashDisplay);
-			console.log(rightCake);
+			console.log(guesser.includes(userGuess.toUpperCase()));
 
+			for (let j = 0; j < guesser.length; j++) {
+				console.log(guesser.indexOf(userGuess.toUpperCase()));
+			}
+	
 		}else {
 			wrongCake.push(userGuess);
-			console.log(wrongCake);
 		}
 
 		if (cakesDashDisplay === guesser) {
